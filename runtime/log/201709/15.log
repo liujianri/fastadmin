@@ -1,0 +1,45 @@
+---------------------------------------------------------------
+[ 2017-09-15T14:46:08+08:00 ] ::1 ::1 GET /fastadmin/public/admin/category/index?search=&sort=weigh&order=desc&_=1505099748477
+[ info ] localhost:8888/fastadmin/public/admin/category/index?search=&sort=weigh&order=desc&_=1505099748477 [运行时间：0.056460s][吞吐率：17.71req/s] [内存消耗：2,072.79kb] [文件加载：67]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000038s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002349s ]
+[ info ] [ LANG ] /Applications/MAMP/htdocs/fastadmin/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'category',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost:8888',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'content-type' => 'application/json',
+  'referer' => 'http://localhost:8888/fastadmin/public/admin/category?addtabs=1',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=cbf31d6cfe9f1b58c95394ace288dce0; SQLiteManager_currentLangue=2; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1504681295; Hm_lpvt_f8d0a8c400404989e195270b0bbf060a=1504681381; UM_distinctid=15e6efda9338be-0e1dada421f737-31607e01-232800-15e6efda9358bc; CNZZDATA681872=cnzz_eid%3D414513070-1505100671-%26ntime%3D1505441375',
+)
+[ info ] [ PARAM ] array (
+  'search' => '',
+  'sort' => 'weigh',
+  'order' => 'desc',
+  '_' => '1505099748477',
+)
+[ info ] [ LANG ] /Applications/MAMP/htdocs/fastadmin/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.000475s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000448s ]
+[ info ] [ LOG ] INIT File
