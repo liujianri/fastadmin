@@ -4,7 +4,7 @@ namespace app\admin\controller\testcase;
 
 use app\common\controller\Backend;
 use app\common\model\Demand as DemandModel;
-
+use think\Db;
 
 class Demand extends Backend
 {
@@ -45,11 +45,39 @@ class Demand extends Backend
      * 添加迭代版本
      */
     public function additeration()
-    {
-        
+    {   
+        if ($this->request->isPost()) {
+            $data=input('post.');
+            $re=Db::name('iteration')->insert($data);
+            if ($re!==false) {
+                $this->success('添加成功','index');
+            }else{
+                $this->error('失败！');
+            }
+        }
+        $iterations=Db::name('iteration')->order('id desc')->paginate(10);
+        $this->assign('iterations',$iterations);
         return $this->view->fetch();
     }
 
+    public function edititeration(){
+        $ids=input('id');
+        if ($this->request->isPost()) {
+            $vnumber=input('vnumber');
+            $remark=input('remark');
+            $re=Db::name('iteration')->where('id', $ids)->update(['vnumber' => $vnumber,'remark' => $remark]);
+            if ($re!==false) {
+                $this->success('修改成功','index');
+            }else{
+                $this->error('失败！');
+            }
+        }
+        $iteration=Db::name('iteration')->where('id',$ids)->find();
+        $iterations=Db::name('iteration')->order('id desc')->paginate(10);
+        $this->assign('iteration',$iteration);
+        $this->assign('iterations',$iterations);
+        return $this->view->fetch();
+    }
     
     public function del($ids = "")
     {

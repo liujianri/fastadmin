@@ -8,14 +8,14 @@
     <div class="form-group">
         <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('version number')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control" required />
+            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control" required value="{$iteration.vnumber}" />
         </div>
     </div>
     
     <div class="form-group">
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('remark')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea type="text" name="remark" data-rule  class="form-control"  rows="5"></textarea>
+            <textarea type="text" name="remark" data-rule  class="form-control"  rows="5">{$iteration.remark}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -65,7 +65,7 @@
                         {$vo.remark}
                     </td>
                     <td style="text-align: center; vertical-align: middle;">
-                            <a href="{:url('edititeration',array('id'=>$vo.id))}" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
+                            <a href="{:url('edititeration')}" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
@@ -73,6 +73,7 @@
             </tbody>
         </table>
         <div class="pull-right pagination">{$iterations->render()}</div>
+        
     </div>
 </div>
 </div>

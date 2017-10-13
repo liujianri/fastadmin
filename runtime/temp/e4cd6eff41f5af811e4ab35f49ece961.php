@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1507900477;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:103:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/edititeration.html";i:1507900468;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -60,14 +60,14 @@
     <div class="form-group">
         <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('version number'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control" required />
+            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control" required value="<?php echo $iteration['vnumber']; ?>" />
         </div>
     </div>
     
     <div class="form-group">
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea type="text" name="remark" data-rule  class="form-control"  rows="5"></textarea>
+            <textarea type="text" name="remark" data-rule  class="form-control"  rows="5"><?php echo $iteration['remark']; ?></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -117,7 +117,7 @@
                         <?php echo $vo['remark']; ?>
                     </td>
                     <td style="text-align: center; vertical-align: middle;">
-                            <a href="<?php echo url('edititeration',array('id'=>$vo['id'])); ?>" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
+                            <a href="<?php echo url('edititeration'); ?>" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
@@ -125,6 +125,7 @@
             </tbody>
         </table>
         <div class="pull-right pagination"><?php echo $iterations->render(); ?></div>
+        
     </div>
 </div>
 </div>
