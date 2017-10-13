@@ -5,12 +5,7 @@ namespace app\admin\controller\testcase;
 use app\common\controller\Backend;
 use app\common\model\Demand as DemandModel;
 
-/**
- * 分类管理
- *
- * @icon fa fa-list
- * @remark 用于统一管理网站的所有分类,分类可进行无限级分类
- */
+
 class Demand extends Backend
 {
 
@@ -46,7 +41,15 @@ class Demand extends Backend
 
         return $this->view->fetch();
     }
-    
+    /**
+     * 添加迭代版本
+     */
+    public function additeration()
+    {
+        
+        return $this->view->fetch();
+    }
+
     
     public function del($ids = "")
     {

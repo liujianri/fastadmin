@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/index.html";i:1502881244;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/index.html";i:1507886706;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -59,13 +59,6 @@
                 <div class="widget-body no-padding">
                     <div id="toolbar" class="toolbar">
                         <?php echo build_toolbar(); ?>
-                        <div class="dropdown btn-group">
-                            <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> <?php echo __('More'); ?></a>
-                            <ul class="dropdown-menu text-left" role="menu">
-                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=normal"><i class="fa fa-eye"></i> <?php echo __('Set to normal'); ?></a></li>
-                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=hidden"><i class="fa fa-eye-slash"></i> <?php echo __('Set to hidden'); ?></a></li>
-                            </ul>
-                        </div>
                     </div>
                     <table id="table" class="table table-striped table-bordered table-hover" width="100%">
                     </table>

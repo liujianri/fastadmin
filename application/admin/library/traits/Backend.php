@@ -144,33 +144,6 @@ trait Backend
         $this->error(__('Parameter %s can not be empty', 'ids'));
     }
 
-    /**
-     * 批量更新
-     */
-    public function multi($ids = "")
-    {
-        $ids = $ids ? $ids : $this->request->param("ids");
-        if ($ids)
-        {
-            if ($this->request->has('params'))
-            {
-                parse_str($this->request->post("params"), $values);
-                $values = array_intersect_key($values, array_flip(is_array($this->multiFields) ? $this->multiFields : explode(',', $this->multiFields)));
-                if ($values)
-                {
-                    $count = $this->model->where($this->model->getPk(), 'in', $ids)->update($values);
-                    if ($count)
-                    {
-                        $this->success();
-                    }
-                }
-                else
-                {
-                    $this->error(__('You have no permission'));
-                }
-            }
-        }
-        $this->error(__('Parameter %s can not be empty', 'ids'));
-    }
-
+    
+    
 }

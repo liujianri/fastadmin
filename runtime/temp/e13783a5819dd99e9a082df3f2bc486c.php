@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/index.html";i:1507890481;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1507892723;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -50,25 +50,65 @@
                             <!-- END RIBBON -->
                             <?php endif; ?>
                             <div class="content">
-                                <div class="panel panel-default panel-intro">
-    <?php echo build_heading(); ?>
-
-    <div class="panel-body">
-        <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active in" id="one">
-                <div class="widget-body no-padding">
-                    <div id="toolbar" class="toolbar">
-                        <?php echo build_toolbar(); ?>
-                        <a href="<?php echo url('testcase.demand/additeration'); ?>" class="btn btn-success btn-mult "><i class="fa fa-plus"></i> <?php echo __('iteration'); ?></a>
-                    </div>
-                    <table id="table" class="table table-striped table-bordered table-hover" width="100%">
-                    </table>
-                </div>
-            </div>
-
+                                <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('version number'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" name="row[vnumber]"  id="c-imagewidth" class="form-control" required />
         </div>
     </div>
+    
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea type="text" name="row[remark]" data-rule required class="form-control"  rows="5">
+            </textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"></label>
+        <button type="submit" class="btn btn-success btn-embossed"><?php echo __('OK'); ?></button>
+    </div>
+</form>
+<div class="panel panel-default panel-intro">
+<div class="panel-body">
+<div class="bootstrap-table">
+<div class="fixed-table-container" style="padding-bottom: 0px;width: 50%">
+    <div class="fixed-table-body">
+        <table class="table table-striped table-bordered table-hover" >
+            <thead style="display: table-header-group;">
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                       <?php echo __('version number'); ?>
+                    </th>
+                    <th>
+                        <?php echo __('remark'); ?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        
+                    </th>
+                    <th>
+                        
+                    </th>
+                    <th>
+                        
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+</div>
+</div>
+</div>
+
 
                             </div>
                         </div>
