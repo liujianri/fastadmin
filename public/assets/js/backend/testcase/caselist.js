@@ -29,8 +29,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'casetitle', title: __('title')},
                         {field: 'demand', title: __('demand'), align: 'left'},
                         {field: 'assignTo', title: __('assignTo')},
-                        {field: 'buildtime', title: __('buildtime')},
-                        {field: 'updatetime', title: __('updatetime')},
+                        {field: 'buildtime', title: __('buildtime'),formatter: Table.api.formatter.datetime},
+                        {field: 'updatetime', title: __('updatetime'),formatter: Table.api.formatter.datetime},
                         {field: 'result', title: __('result'),formatter: Table.api.formatter.result},
                         {field: 'builder', title: __('builder')},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}

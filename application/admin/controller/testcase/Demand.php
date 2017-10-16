@@ -1,7 +1,5 @@
 <?php
-
 namespace app\admin\controller\testcase;
-
 use app\common\controller\Backend;
 use app\common\model\Demand as DemandModel;
 use think\Db;
@@ -15,6 +13,8 @@ class Demand extends Backend
     {
         parent::_initialize();
         $this->model = model('Demand');
+        $itera=Db::name('iteration')->order('id desc')->select();
+        $this->view->assign('itera', $itera);
     }
 
     /**
@@ -73,9 +73,7 @@ class Demand extends Backend
             }
         }
         $iteration=Db::name('iteration')->where('id',$ids)->find();
-        $iterations=Db::name('iteration')->order('id desc')->paginate(10);
         $this->assign('iteration',$iteration);
-        $this->assign('iterations',$iterations);
         return $this->view->fetch();
     }
     

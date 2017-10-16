@@ -1,7 +1,6 @@
-<div class="content">
-<div class="row animated fadeInRight">
-<div class="col-md-4" style="width: 45%">
+<div class="col-md-4" style="width: 45%;float: center">
 <div class="box box-success">
+<div class="panel-heading">{:__('edit iteration')}</div>
 <div class="panel panel-default panel-intro" >
 <div class="panel-body">
 <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
@@ -21,66 +20,10 @@
     <div class="form-group">
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"></label>
         <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
-        <a type="text" class="btn btn-default btn-embossed" onclick="javascript:history.back(-1)">{:__('Back')}</a>
+        <a type="text" class="btn btn-default btn-embossed" href="{:url('index')}">{:__('Back')}</a>
     </div>
 </form>
 </div>
 </div>
 </div>
 </div>
-<div class="col-md-4" style="width: 50%">
-<div class="box box-success">
-<div class="panel panel-default panel-intro" >
-<div class="panel-body">
-<div class="bootstrap-table">
-<div class="fixed-table-container" style="padding-bottom: 0px;">
-    <div class="fixed-table-body">
-        <table class="table table-striped table-bordered table-hover" >
-            <thead style="display: table-header-group;">
-                <tr>
-                    <th style="text-align: center; vertical-align: middle; ">
-                        {:__('ID')}
-                    </th>
-                    <th style="text-align: center; vertical-align: middle; ">
-                       {:__('version number')}
-                    </th>
-                    <th style="text-align: center; vertical-align: middle; ">
-                        {:__('remark')}
-                    </th>
-                    <th style="text-align: center; vertical-align: middle; ">
-                        {:__('Operate')}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            {volist name="iterations" id="vo"}
-                <tr>
-                    <td style="text-align: center; vertical-align: middle;">
-                        {$vo.id}
-                    </td>
-                    <td style="text-align: center; vertical-align: middle;">
-                        {$vo.vnumber}
-                    </td>
-                    <td style="text-align: center; vertical-align: middle;">
-                        {$vo.remark}
-                    </td>
-                    <td style="text-align: center; vertical-align: middle;">
-                            <a href="{:url('edititeration')}" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-            {/volist}
-            </tbody>
-        </table>
-        <div class="pull-right pagination">{$iterations->render()}</div>
-        
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-

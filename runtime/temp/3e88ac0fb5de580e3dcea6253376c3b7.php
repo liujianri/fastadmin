@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/add.html";i:1507804890;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:93:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/add.html";i:1508143862;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -51,8 +51,16 @@
                             <?php endif; ?>
                             <div class="content">
                                 <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
-
-    
+    <div class="form-group">
+        <label for="c-type" class="control-label col-xs-12 col-sm-2"><?php echo __('iteration'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[iteration]">
+            <?php if(is_array($itera) || $itera instanceof \think\Collection || $itera instanceof \think\Paginator): $i = 0; $__LIST__ = $itera;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <option value="<?php echo $vo['vnumber']; ?>" name="row[iteration]" ><?php echo $vo['vnumber']; ?></option>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+        </div>
+    </div>
     <div class="form-group">
         <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('title'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
@@ -63,8 +71,7 @@
     <div class="form-group">
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea type="text" name="row[remark]" data-rule required class="form-control"  rows="10">
-            </textarea>
+            <textarea type="text" name="row[remark]" data-rule required class="form-control"  rows="10"></textarea>
         </div>
     </div>
     <div class="form-group hide layer-footer">

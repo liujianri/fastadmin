@@ -20,6 +20,11 @@ class CaseList extends Backend
     {
         parent::_initialize();
         $this->model = model('CaseList');
+        $assignToer=model('Admin')->column('username');
+        $demands=model('Demand')->column('title');
+        $this->view->assign("assignToer", $assignToer);
+        $this->view->assign("demands", $demands);
+
     }
 
     /**
@@ -47,18 +52,6 @@ class CaseList extends Backend
         return $this->view->fetch();
     }
     
-    /**
-     * 添加
-     */
-    public function add()
-    {
-        if ($this->request->isAjax())
-        {
-            $this->error();
-        }
-        return $this->view->fetch();
-    }
-
     public function del($ids = "")
     {
         if ($ids)

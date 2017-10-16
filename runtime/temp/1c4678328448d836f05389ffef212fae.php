@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/add.html";i:1502881244;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/add.html";i:1508149123;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -50,49 +50,66 @@
                             <!-- END RIBBON -->
                             <?php endif; ?>
                             <div class="content">
-                                <form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
-    <?php if($config['upload']['cdnurl']): ?>
+                                <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
     <div class="form-group">
-        <label for="c-third" class="control-label col-xs-12 col-sm-2"><?php echo __('Upload'); ?>:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('casetitle'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[third]" id="c-third" class="form-control" />
+            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required />
+            <input type="hidden" name="row[builder]"  id="c-imagewidth" class="form-control"  value="<?php echo $admin['username']; ?>" />
         </div>
     </div>
-
     <div class="form-group">
-        <label for="c-third" class="control-label col-xs-12 col-sm-2"></label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2"><?php echo __('demand'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <button id="plupload-third" class="btn btn-danger plupload" data-input-id="c-third" ><i class="fa fa-upload"></i> <?php echo __("Upload to third"); ?></button>
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[demand]">
+            <?php foreach($demands as $demand): ?>
+                <option value="<?php echo $demand; ?>" name="row[demand]" ><?php echo $demand; ?></option>
+            <?php endforeach; ?>
+            </select>
         </div>
     </div>
-    <?php endif; ?>
-
     <div class="form-group">
-        <label for="c-local" class="control-label col-xs-12 col-sm-2"><?php echo __('Upload'); ?>:</label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2"><?php echo __('assignTo'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[local]" id="c-local" class="form-control" />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[assignTo]">
+            <?php foreach($assignToer as $assignTo): ?>
+                <option value="<?php echo $assignTo; ?>" name="row[assignTo]" <?php if($admin['username'] == $assignTo): ?> selected="selected" <?php endif; ?> ><?php echo $assignTo; ?></option>
+            <?php endforeach; ?>
+            </select>
         </div>
     </div>
-
     <div class="form-group">
-        <label for="c-local" class="control-label col-xs-12 col-sm-2"></label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('precondition'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <button id="plupload-local" class="btn btn-primary plupload" data-input-id="c-local" data-url="<?php echo url('ajax/upload'); ?>"><i class="fa fa-upload"></i> <?php echo __("Upload to local"); ?></button>
+            <textarea type="text" name="row[precondition]" data-rule required class="form-control"  rows="2"></textarea>
         </div>
     </div>
-
     <div class="form-group">
-        <label for="c-editor" class="control-label col-xs-12 col-sm-2"><?php echo __('Upload from editor'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('steps'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea name="row[editor]" id="c-editor" cols="60" rows="5" class="form-control editor"></textarea>
+            <textarea type="text" name="row[steps]" data-rule required class="form-control"  rows="10"></textarea>
         </div>
     </div>
-    <div class="form-group hidden layer-footer">
-        <div class="col-xs-2"></div>
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('expects'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
+            <textarea type="text" name="row[expects]" data-rule required class="form-control"  rows="10"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea type="text" name="row[remarks]" data-rule required class="form-control"  rows="5"></textarea>
+        </div>
+    </div>
+    <div class="form-group hide layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled"><?php echo __('OK'); ?></button>
             <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
         </div>
     </div>
+    
 </form>
 
                             </div>

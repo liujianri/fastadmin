@@ -101,6 +101,7 @@ class Auth
         {
             return true;
         }
+        //dump($name);die;
         // 获取用户需要验证的所有有效规则列表
         $rulelist = $this->getRuleList($uid);
         if (in_array('*', $rulelist))

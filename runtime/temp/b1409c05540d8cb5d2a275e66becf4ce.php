@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:103:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/edititeration.html";i:1508138012;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/auth/admin/add.html";i:1502881244;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -50,35 +50,51 @@
                             <!-- END RIBBON -->
                             <?php endif; ?>
                             <div class="content">
-                                <div class="col-md-4" style="width: 45%;float: center">
-<div class="box box-success">
-<div class="panel-heading"><?php echo __('edit iteration'); ?></div>
-<div class="panel panel-default panel-intro" >
-<div class="panel-body">
-<form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+                                <form id="add-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
     <div class="form-group">
-        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('version number'); ?>:</label>
+        <label for="role_id" class="control-label col-xs-12 col-sm-2"><?php echo __('Group'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control" required value="<?php echo $iteration['vnumber']; ?>" />
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <textarea type="text" name="remark" data-rule  class="form-control"  rows="5"><?php echo $iteration['remark']; ?></textarea>
+            <?php echo build_select('group[]', $groupdata, null, ['class'=>'form-control selectpicker', 'multiple'=>'', 'required'=>'']); ?>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"></label>
-        <button type="submit" class="btn btn-success btn-embossed"><?php echo __('OK'); ?></button>
-        <a type="text" class="btn btn-default btn-embossed" href="<?php echo url('index'); ?>"><?php echo __('Back'); ?></a>
+        <label for="username" class="control-label col-xs-12 col-sm-2"><?php echo __('Username'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="username" name="row[username]" value="" data-rule="required;username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="control-label col-xs-12 col-sm-2"><?php echo __('Email'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="email" class="form-control" id="email" name="row[email]" value="" data-rule="required;email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nickname" class="control-label col-xs-12 col-sm-2"><?php echo __('Nickname'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="nickname" name="row[nickname]" value="" data-rule="required;username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="control-label col-xs-12 col-sm-2"><?php echo __('Password'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="password" class="form-control" id="password" name="row[password]" value="" data-rule="required;password" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content" class="control-label col-xs-12 col-sm-2"><?php echo __('Status'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <?php echo build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')]); ?>
+        </div>
+    </div>
+    <div class="form-group hidden layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled"><?php echo __('OK'); ?></button>
+            <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
+        </div>
     </div>
 </form>
-</div>
-</div>
-</div>
-</div>
                             </div>
                         </div>
                     </div>

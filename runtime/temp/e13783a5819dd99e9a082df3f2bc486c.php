@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1507900477;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1508138096;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -54,6 +54,7 @@
 <div class="row animated fadeInRight">
 <div class="col-md-4" style="width: 45%">
 <div class="box box-success">
+<div class="panel-heading"><?php echo __('add iteration'); ?></div>
 <div class="panel panel-default panel-intro" >
 <div class="panel-body">
 <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
@@ -73,7 +74,7 @@
     <div class="form-group">
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"></label>
         <button type="submit" class="btn btn-success btn-embossed"><?php echo __('OK'); ?></button>
-        <a type="text" class="btn btn-default btn-embossed" onclick="javascript:history.back(-1)"><?php echo __('Back'); ?></a>
+        <a type="text" class="btn btn-default btn-embossed" href="<?php echo url('index'); ?>"><?php echo __('Back'); ?></a>
     </div>
 </form>
 </div>
