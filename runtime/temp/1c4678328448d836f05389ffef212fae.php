@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/add.html";i:1508149123;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/add.html";i:1508330611;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -54,7 +54,7 @@
     <div class="form-group">
         <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('casetitle'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required />
+            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required="" />
             <input type="hidden" name="row[builder]"  id="c-imagewidth" class="form-control"  value="<?php echo $admin['username']; ?>" />
         </div>
     </div>
@@ -63,7 +63,7 @@
         <div class="col-xs-12 col-sm-8">
             <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[demand]">
             <?php foreach($demands as $demand): ?>
-                <option value="<?php echo $demand; ?>" name="row[demand]" ><?php echo $demand; ?></option>
+                <option value="<?php echo $demand; ?>" name="row[demand]"{/if} ><?php echo $demand; ?></option>
             <?php endforeach; ?>
             </select>
         </div>
@@ -75,6 +75,27 @@
             <?php foreach($assignToer as $assignTo): ?>
                 <option value="<?php echo $assignTo; ?>" name="row[assignTo]" <?php if($admin['username'] == $assignTo): ?> selected="selected" <?php endif; ?> ><?php echo $assignTo; ?></option>
             <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('priority'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[priority]">
+                <option value="3"  >3</option>
+                <option value="2"  >2</option>
+                <option value="1"  >1</option>
+                <option value="0" selected="selected" >0</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('platform'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[platform]">
+                <option value="2" selected="selected" ><?php echo __('Android and iOS'); ?></option>
+                <option value="Android"  ><?php echo __('Android'); ?></option>
+                <option value="iOS"  ><?php echo __('iOS'); ?></option>
             </select>
         </div>
     </div>
@@ -109,7 +130,6 @@
             <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
         </div>
     </div>
-    
 </form>
 
                             </div>

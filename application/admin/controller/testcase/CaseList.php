@@ -16,15 +16,17 @@ class CaseList extends Backend
 
     protected $model = null;
 
+    protected $arr = null;
     public function _initialize()
     {
         parent::_initialize();
         $this->model = model('CaseList');
-        $assignToer=model('Admin')->column('username');
-        $demands=model('Demand')->column('title');
+        $this->modelValidate=Validate('CaseList');
+        $assignToer=model('Admin')->column('username');//指派人需要做权限
+        $demands=model('Demand')->where('status','normal')->order('id desc')->column('title');
+        $this->arr=$demands;
         $this->view->assign("assignToer", $assignToer);
         $this->view->assign("demands", $demands);
-
     }
 
     /**
@@ -35,12 +37,11 @@ class CaseList extends Backend
         if ($this->request->isAjax())
         {   
             list($where, $sort, $order, $offset, $limit) = $this->buildparams();
-            $total = $this->model
+            $total = $this->model->where('demand','in',$this->arr)
                     ->where($where)
                     ->order($sort, $order)
                     ->count();
-
-            $list = $this->model
+            $list = $this->model->where('demand','in',$this->arr)
                     ->where($where)
                     ->order($sort, $order)
                     ->limit($offset, $limit)
@@ -51,6 +52,68 @@ class CaseList extends Backend
         
         return $this->view->fetch();
     }
+    /*
+    *添加用例
+    */
+    public function add()
+    {
+        if ($this->request->isPost())
+        {
+            $params = $this->request->post("row/a");
+
+            if ($params)
+            {   
+                foreach ($params as $k => &$v)
+                {
+                    $v = is_array($v) ? implode(',', $v) : $v;
+                }
+                try
+                {
+                    //是否采用模型验证
+                    if ($this->modelValidate)
+                    {
+                        $name = basename(str_replace('\\', '/', get_class($this->model)));
+                        $validate = is_bool($this->modelValidate) ? ($this->modelSceneValidate ? $name . '.add' : true) : $this->modelValidate;
+                        $this->model->validate($validate);
+                    }
+                    if ($params['platform']=='2') {
+                        $params['platform']='iOS';
+                        $ls=[];
+                        $android=$params;
+                        $android['platform']='Android';
+                        $ls=[$params,$android];
+                        $result = $this->model->saveAll($ls);
+                        if ($result !== false)
+                        {
+                            $this->success();
+                        }
+                        else
+                        {
+                            $this->error($this->model->getError());
+                        }
+                    }else{
+                       $result = $this->model->save($params);
+                        if ($result !== false)
+                        {
+                            $this->success();
+                        }
+                        else
+                        {
+                            $this->error($this->model->getError());
+                        } 
+                    }
+                    
+                }
+                catch (\think\exception\PDOException $e)
+                {
+                    $this->error($e->getMessage());
+                }
+            }
+            $this->error(__('Parameter %s can not be empty', ''));
+        }
+        return $this->view->fetch();
+    }
+
     
     public function del($ids = "")
     {

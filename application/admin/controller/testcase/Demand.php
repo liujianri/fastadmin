@@ -3,6 +3,7 @@ namespace app\admin\controller\testcase;
 use app\common\controller\Backend;
 use app\common\model\Demand as DemandModel;
 use think\Db;
+use think\Validate;
 
 class Demand extends Backend
 {
@@ -13,10 +14,11 @@ class Demand extends Backend
     {
         parent::_initialize();
         $this->model = model('Demand');
-        $itera=Db::name('iteration')->order('id desc')->select();
+        $this->modelValidate=Validate('Demand');
+        $itera=Db::name('iteration')->where('status','normal')->order('id desc')->select();
         $this->view->assign('itera', $itera);
-    }
 
+    }
     /**
      * 查看
      */
@@ -29,7 +31,6 @@ class Demand extends Backend
                     ->where($where)
                     ->order($sort, $order)
                     ->count();
-
             $list = $this->model
                     ->where($where)
                     ->order($sort, $order)
@@ -38,7 +39,6 @@ class Demand extends Backend
             $result = array("total" => $total, "rows" => $list);
             return json($result);
         }
-
         return $this->view->fetch();
     }
     /**
@@ -48,12 +48,22 @@ class Demand extends Backend
     {   
         if ($this->request->isPost()) {
             $data=input('post.');
-            $re=Db::name('iteration')->insert($data);
-            if ($re!==false) {
-                $this->success('添加成功','index');
+            $rules = [
+                'vnumber'  => 'require',
+            ];
+            $validate = new Validate($rules);
+            $result   = $validate->check($data);
+            if ($result!== false) {
+                $re=Db::name('iteration')->insert($data);
+                if ($re!==false) {
+                    $this->success('添加成功','index');
+                }else{
+                    $this->error('失败！');
+                }
             }else{
-                $this->error('失败！');
+                $this->error('版本号不能为空');
             }
+            
         }
         $iterations=Db::name('iteration')->order('id desc')->paginate(10);
         $this->assign('iterations',$iterations);
@@ -63,13 +73,21 @@ class Demand extends Backend
     public function edititeration(){
         $ids=input('id');
         if ($this->request->isPost()) {
-            $vnumber=input('vnumber');
-            $remark=input('remark');
-            $re=Db::name('iteration')->where('id', $ids)->update(['vnumber' => $vnumber,'remark' => $remark]);
-            if ($re!==false) {
-                $this->success('修改成功','index');
+            $data=input('post.');
+            $rules = [
+                'vnumber'  => 'require',
+            ];
+            $validate = new Validate($rules);
+            $result = $validate->check($data);
+            if ($result!== false) {
+                $re=Db::name('iteration')->where('id', $ids)->update($data);
+                if ($re!==false) {
+                    $this->success('修改成功','index');
+                }else{
+                    $this->error('失败！');
+                }
             }else{
-                $this->error('失败！');
+                $this->error('版本号不能为空');
             }
         }
         $iteration=Db::name('iteration')->where('id',$ids)->find();

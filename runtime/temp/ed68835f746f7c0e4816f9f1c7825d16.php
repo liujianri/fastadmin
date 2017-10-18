@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/edit.html";i:1508140584;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:94:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/edit.html";i:1508245139;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -75,7 +75,6 @@
             <input type="text" name="row[title]" value="<?php echo $row['title']; ?>"  id="c-imagewidth" class="form-control" required />
         </div>
     </div>
-    
     <div class="form-group">
         <label for="c-uploadtime" class="control-label col-xs-12 col-sm-2"><?php echo __('buildtime'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
@@ -86,6 +85,12 @@
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <textarea type="text" name="row[remark]" id="c-imageheight" class="form-control" required rows="10"><?php echo $row['remark']; ?></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content" class="control-label col-xs-12 col-sm-2"><?php echo __('Status'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <?php echo build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status']); ?>
         </div>
     </div>
     <div class="form-group hide layer-footer">

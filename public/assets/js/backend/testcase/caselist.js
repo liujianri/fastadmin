@@ -26,10 +26,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
+                        {field: 'priority', title: __('priority')},
+                        {field: 'platform', title: __('platform')},
                         {field: 'casetitle', title: __('title')},
                         {field: 'demand', title: __('demand'), align: 'left'},
                         {field: 'assignTo', title: __('assignTo')},
-                        {field: 'buildtime', title: __('buildtime'),formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: __('updatetime'),formatter: Table.api.formatter.datetime},
                         {field: 'result', title: __('result'),formatter: Table.api.formatter.result},
                         {field: 'builder', title: __('builder')},

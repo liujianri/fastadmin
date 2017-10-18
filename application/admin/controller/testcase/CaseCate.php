@@ -14,7 +14,6 @@ class CaseCate extends Backend
 {
 
     protected $model = null;
-
     public function _initialize()
     {
         parent::_initialize();
@@ -25,9 +24,30 @@ class CaseCate extends Backend
      * 查看
      */
     public function index()
-    {
-       
+    {   
+        if ($this->request->isAjax()) {
+            $where=[];
+            $platform = $this->request->get("platform");
+            if ($platform) {
+                $where['platform']=$platform;
+            }
+            $demands=$this->model->where($where)->group('demand')->column('demand');
+            foreach ($demands as $key => $value) {
+                $pass[]=$this->getdata($value,'通过',$where);
+                $fail[]=$this->getdata($value,'失败',$where);
+                $new[]=$this->getdata($value,'新建',$where);
+                $nt[]=$this->getdata($value,'忽略',$where);
+                $na[]=$this->getdata($value,'阻塞',$where);
+            }
+            $result = array('demand' => $demands, "fail"=>$fail,'pass' => $pass,'new' => $new,'nt' => $nt,'na' => $na,);
+            return json($result);
+        }
         return $this->view->fetch();
+    }
+    protected function getdata($value,$result,$where){
+        $where['demand']=$value;
+        $where['result']=$result;
+        return $this->model->where($where)->count();
     }
 
 }

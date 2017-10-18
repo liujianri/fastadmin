@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/general/profile/index.html";i:1502881244;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:95:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/general/profile/index.html";i:1508207244;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -97,7 +97,7 @@
                             <div class="profile-avatar-text img-circle"><?php echo __('Click to edit'); ?></div>
                             <button id="plupload-avatar" class="plupload" data-input-id="c-avatar"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button>
                         </div>
-                        
+                    
                         <h3 class="profile-username text-center"><?php echo $admin['username']; ?></h3>
 
                         <p class="text-muted text-center"><?php echo $admin['email']; ?></p>

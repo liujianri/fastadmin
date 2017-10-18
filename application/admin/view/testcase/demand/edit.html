@@ -23,7 +23,6 @@
             <input type="text" name="row[title]" value="{$row.title}"  id="c-imagewidth" class="form-control" required />
         </div>
     </div>
-    
     <div class="form-group">
         <label for="c-uploadtime" class="control-label col-xs-12 col-sm-2">{:__('buildtime')}:</label>
         <div class="col-xs-12 col-sm-8">
@@ -34,6 +33,12 @@
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('remark')}:</label>
         <div class="col-xs-12 col-sm-8">
             <textarea type="text" name="row[remark]" id="c-imageheight" class="form-control" required rows="10">{$row.remark}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content" class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status'])}
         </div>
     </div>
     <div class="form-group hide layer-footer">

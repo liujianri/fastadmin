@@ -92,8 +92,10 @@ trait Backend
         if ($this->request->isPost())
         {
             $params = $this->request->post("row/a");
+            
             if ($params)
             {
+
                 foreach ($params as $k => &$v)
                 {
                     $v = is_array($v) ? implode(',', $v) : $v;
@@ -145,5 +147,5 @@ trait Backend
     }
 
     
-    
+
 }

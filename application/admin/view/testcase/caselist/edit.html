@@ -1,70 +1,100 @@
 <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
-
     <div class="form-group">
-        <label for="c-url" class="control-label col-xs-12 col-sm-2">{:__('Url')}:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('casetitle')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[id]" value="{$row.id}"  id="c-url" class="form-control" required />
+            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required value="{$row.casetitle}" />
+            <input type="hidden"  name="row[updater]"  id="c-imagewidth" class="form-control"  value="{$admin.username}" />
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('Imagewidth')}:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('builder')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[casetitle]" value="{$row.casetitle}"  id="c-imagewidth" class="form-control" required />
+            <input type="text" disabled= "true " name="row[builder]"  id="c-imagewidth" class="form-control"  value="{$row.builder}" />
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('Imageheight')}:</label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('demand')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[demand]" value="{$row.demand}"  id="c-imageheight" class="form-control" required />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[demand]">
+            {foreach $demands as $demand}
+                <option value="{$demand}" name="row[demand]" {if condition="$row.demand eq $demand"} selected="selected" {/if}>{$row.demand}</option>
+            {/foreach}
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imagetype" class="control-label col-xs-12 col-sm-2">{:__('Imagetype')}:</label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('assignTo')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[steps]" value="{$row.steps}"  id="c-imagetype" class="form-control" required />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[assignTo]">
+            {foreach $assignToer as $assignTo}
+                <option value="{$assignTo}" name="row[assignTo]" {if condition="$row.assignTo eq $assignTo"} selected="selected" {/if} >{$assignTo}</option>
+            {/foreach}
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageframes" class="control-label col-xs-12 col-sm-2">{:__('Imageframes')}:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('priority')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="number" name="row[expects]" value="{$row.expects}"  id="c-imageframes" class="form-control" />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[priority]">
+                <option value="3" {if condition="$row.priority eq '3'"} selected="selected" {/if}  >3</option>
+                <option value="2" {if condition="$row.priority eq '2'"} selected="selected" {/if}  >2</option>
+                <option value="1" {if condition="$row.priority eq '1'"} selected="selected" {/if}  >1</option>
+                <option value="0" {if condition="$row.priority eq '0'"} selected="selected" {/if}  >0</option>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-filesize" class="control-label col-xs-12 col-sm-2">{:__('Filesize')}:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('priority')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="number" name="row[demand]" value="{$row.demand}"  id="c-filesize" class="form-control" />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[platform]">
+                <option value="Android" {if condition="$row.platform eq 'Android'"} selected="selected" {/if} >{:__('Android')}</option>
+                <option value="iOS"  {if condition="$row.platform eq 'iOS'"} selected="selected" {/if} >{:__('iOS')}</option>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-mimetype" class="control-label col-xs-12 col-sm-2">{:__('Mimetype')}:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('precondition')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[assignTo]" value="{$row.assignTo}"  id="c-mimetype" class="form-control" />
+            <textarea type="text" name="row[precondition]" data-rule required class="form-control"  rows="2">{$row.precondition}</textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-extparam" class="control-label col-xs-12 col-sm-2">{:__('Extparam')}:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('steps')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[demand]" value="{$row.demand}"  id="c-extparam" class="form-control" />
+            <textarea type="text" name="row[steps]" data-rule required class="form-control"  rows="10">{$row.steps}</textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-uploadtime" class="control-label col-xs-12 col-sm-2">{:__('Uploadtime')}:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('expects')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="datetime" name="row[demand]" value="{$row.demand|datetime}"  id="c-uploadtime" class="form-control datetimepicker" />
+            <textarea type="text" name="row[expects]" data-rule required class="form-control"  rows="10">{$row.expects}</textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-storage" class="control-label col-xs-12 col-sm-2">{:__('Storage')}:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('remarks')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[demand]" value="{$row.demand}"  id="c-storage" class="form-control" />
+            <textarea type="text" name="row[remarks]" data-rule required class="form-control"  rows="5">{$row.remarks}</textarea>
         </div>
     </div>
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2">{:__('remarks')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select name="row[result]" id="test_result" class="form-control btn-embossed">
+            <option value="忽略" name="row[result]" {if condition="$row.result eq '忽略'"} selected="selected" {/if}>忽略</option>
+            <option value="通过" name="row[result]" {if condition="$row.result eq '通过'"} selected="selected" {/if}>通过</option>
+            <option value="失败" name="row[result]" {if condition="$row.result eq '失败'"} selected="selected" {/if}>失败</option>
+            <option value="阻塞" name="row[result]" {if condition="$row.result eq '阻塞'"} selected="selected" {/if}>阻塞</option>
+            <option value="新建" name="row[result]" {if condition="$row.result eq '新建'"} selected="selected" {/if}>新建</option>
+            </select>
+        </div>
+    </div>
+    
     <div class="form-group hide layer-footer">
-        <label class="control-label col-xs-12 col-sm-2"></label>
-        <div class="col-xs-12 col-sm-8">
+    <div style="text-align:end;" class="form-group">
+     <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8" style="width: 20%;float:center;">
             <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
-            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
         </div>
+    </div>
     </div>
 </form>

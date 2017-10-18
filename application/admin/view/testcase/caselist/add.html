@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('casetitle')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required />
+            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required="" />
             <input type="hidden" name="row[builder]"  id="c-imagewidth" class="form-control"  value="{$admin.username}" />
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="col-xs-12 col-sm-8">
             <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[demand]">
             {foreach $demands as $demand}
-                <option value="{$demand}" name="row[demand]" >{$demand}</option>
+                <option value="{$demand}" name="row[demand]"{/if} >{$demand}</option>
             {/foreach}
             </select>
         </div>
@@ -23,6 +23,27 @@
             {foreach $assignToer as $assignTo}
                 <option value="{$assignTo}" name="row[assignTo]" {if condition="$admin.username eq $assignTo"} selected="selected" {/if} >{$assignTo}</option>
             {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('priority')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[priority]">
+                <option value="3"  >3</option>
+                <option value="2"  >2</option>
+                <option value="1"  >1</option>
+                <option value="0" selected="selected" >0</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2">{:__('platform')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[platform]">
+                <option value="2" selected="selected" >{:__('Android and iOS')}</option>
+                <option value="Android"  >{:__('Android')}</option>
+                <option value="iOS"  >{:__('iOS')}</option>
             </select>
         </div>
     </div>
@@ -57,5 +78,4 @@
             <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
         </div>
     </div>
-    
 </form>

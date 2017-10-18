@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/casecate/index.html";i:1507797109;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/casecate/index.html";i:1508332107;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -57,16 +57,18 @@
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="one">
                 <div class="widget-body no-padding">
-                    <div id="toolbar" class="toolbar">
-                        主页
+                    <div id="toolbar" class="bs-bars pull-right">
+                        <?php echo build_radios('platform', ['iOS'=>'iOS&nbsp;&nbsp;&nbsp;', 'Android'=>'Android&nbsp;&nbsp;&nbsp;']); ?>
+                        <button id="btn" type="button" class="btn btn-success" value="iOS" ><?php echo __('OK'); ?></button>
                     </div>
-                    <a href="<?php echo url('testcase/caselist',array('demand'=>'需求')); ?>" type="button" class="btn btn-block btn-default">Default</a>
+                <div  class="fixed-table-container">
+                <div id="echarts" style="width: 800px;height:500px;"></div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
 
                             </div>
                         </div>

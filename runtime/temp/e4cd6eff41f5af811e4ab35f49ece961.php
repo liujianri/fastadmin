@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:103:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/edititeration.html";i:1508138012;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:103:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/edititeration.html";i:1508235931;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -59,7 +59,7 @@
     <div class="form-group">
         <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('version number'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control" required value="<?php echo $iteration['vnumber']; ?>" />
+            <input type="text" name="vnumber"  id="c-imagewidth" class="form-control"  value="<?php echo $iteration['vnumber']; ?>" />
         </div>
     </div>
     
@@ -67,6 +67,12 @@
         <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <textarea type="text" name="remark" data-rule  class="form-control"  rows="5"><?php echo $iteration['remark']; ?></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content" class="control-label col-xs-12 col-sm-2"><?php echo __('Status'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <?php echo build_radios('status', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $iteration['status']); ?>
         </div>
     </div>
     <div class="form-group">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1508138096;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1508235496;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -97,6 +97,9 @@
                     <th style="text-align: center; vertical-align: middle; ">
                        <?php echo __('version number'); ?>
                     </th>
+                     <th style="text-align: center; vertical-align: middle; ">
+                        <?php echo __('Status'); ?>
+                    </th>
                     <th style="text-align: center; vertical-align: middle; ">
                         <?php echo __('remark'); ?>
                     </th>
@@ -113,6 +116,9 @@
                     </td>
                     <td style="text-align: center; vertical-align: middle;">
                         <?php echo $vo['vnumber']; ?>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <?php echo $vo['status']; ?>
                     </td>
                     <td style="text-align: center; vertical-align: middle;">
                         <?php echo $vo['remark']; ?>

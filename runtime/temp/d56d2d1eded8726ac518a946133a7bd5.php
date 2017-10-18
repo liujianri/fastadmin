@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:96:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/edit.html";i:1507792322;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:96:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/edit.html";i:1508233938;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -51,73 +51,103 @@
                             <?php endif; ?>
                             <div class="content">
                                 <form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
-
     <div class="form-group">
-        <label for="c-url" class="control-label col-xs-12 col-sm-2"><?php echo __('Url'); ?>:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('casetitle'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[id]" value="<?php echo $row['id']; ?>"  id="c-url" class="form-control" required />
+            <input type="text" name="row[casetitle]"  id="c-imagewidth" class="form-control" required value="<?php echo $row['casetitle']; ?>" />
+            <input type="hidden"  name="row[updater]"  id="c-imagewidth" class="form-control"  value="<?php echo $admin['username']; ?>" />
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('Imagewidth'); ?>:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('builder'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[casetitle]" value="<?php echo $row['casetitle']; ?>"  id="c-imagewidth" class="form-control" required />
+            <input type="text" disabled= "true " name="row[builder]"  id="c-imagewidth" class="form-control"  value="<?php echo $row['builder']; ?>" />
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('Imageheight'); ?>:</label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2"><?php echo __('demand'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[demand]" value="<?php echo $row['demand']; ?>"  id="c-imageheight" class="form-control" required />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[demand]">
+            <?php foreach($demands as $demand): ?>
+                <option value="<?php echo $demand; ?>" name="row[demand]" <?php if($row['demand'] == $demand): ?> selected="selected" <?php endif; ?>><?php echo $row['demand']; ?></option>
+            <?php endforeach; ?>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imagetype" class="control-label col-xs-12 col-sm-2"><?php echo __('Imagetype'); ?>:</label>
+        <label for="c-type" class="control-label col-xs-12 col-sm-2"><?php echo __('assignTo'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[steps]" value="<?php echo $row['steps']; ?>"  id="c-imagetype" class="form-control" required />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[assignTo]">
+            <?php foreach($assignToer as $assignTo): ?>
+                <option value="<?php echo $assignTo; ?>" name="row[assignTo]" <?php if($row['assignTo'] == $assignTo): ?> selected="selected" <?php endif; ?> ><?php echo $assignTo; ?></option>
+            <?php endforeach; ?>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageframes" class="control-label col-xs-12 col-sm-2"><?php echo __('Imageframes'); ?>:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('priority'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="number" name="row[expects]" value="<?php echo $row['expects']; ?>"  id="c-imageframes" class="form-control" />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[priority]">
+                <option value="3" <?php if($row['priority'] == '3'): ?> selected="selected" <?php endif; ?>  >3</option>
+                <option value="2" <?php if($row['priority'] == '2'): ?> selected="selected" <?php endif; ?>  >2</option>
+                <option value="1" <?php if($row['priority'] == '1'): ?> selected="selected" <?php endif; ?>  >1</option>
+                <option value="0" <?php if($row['priority'] == '0'): ?> selected="selected" <?php endif; ?>  >0</option>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-filesize" class="control-label col-xs-12 col-sm-2"><?php echo __('Filesize'); ?>:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('priority'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="number" name="row[demand]" value="<?php echo $row['demand']; ?>"  id="c-filesize" class="form-control" />
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[platform]">
+                <option value="Android" <?php if($row['platform'] == 'Android'): ?> selected="selected" <?php endif; ?> ><?php echo __('Android'); ?></option>
+                <option value="iOS"  <?php if($row['platform'] == 'iOS'): ?> selected="selected" <?php endif; ?> ><?php echo __('iOS'); ?></option>
+            </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-mimetype" class="control-label col-xs-12 col-sm-2"><?php echo __('Mimetype'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('precondition'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[assignTo]" value="<?php echo $row['assignTo']; ?>"  id="c-mimetype" class="form-control" />
+            <textarea type="text" name="row[precondition]" data-rule required class="form-control"  rows="2"><?php echo $row['precondition']; ?></textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-extparam" class="control-label col-xs-12 col-sm-2"><?php echo __('Extparam'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('steps'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[demand]" value="<?php echo $row['demand']; ?>"  id="c-extparam" class="form-control" />
+            <textarea type="text" name="row[steps]" data-rule required class="form-control"  rows="10"><?php echo $row['steps']; ?></textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-uploadtime" class="control-label col-xs-12 col-sm-2"><?php echo __('Uploadtime'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('expects'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="datetime" name="row[demand]" value="<?php echo datetime($row['demand']); ?>"  id="c-uploadtime" class="form-control datetimepicker" />
+            <textarea type="text" name="row[expects]" data-rule required class="form-control"  rows="10"><?php echo $row['expects']; ?></textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-storage" class="control-label col-xs-12 col-sm-2"><?php echo __('Storage'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remarks'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input type="text" name="row[demand]" value="<?php echo $row['demand']; ?>"  id="c-storage" class="form-control" />
+            <textarea type="text" name="row[remarks]" data-rule required class="form-control"  rows="5"><?php echo $row['remarks']; ?></textarea>
         </div>
     </div>
+    <div class="form-group">
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remarks'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select name="row[result]" id="test_result" class="form-control btn-embossed">
+            <option value="忽略" name="row[result]" <?php if($row['result'] == '忽略'): ?> selected="selected" <?php endif; ?>>忽略</option>
+            <option value="通过" name="row[result]" <?php if($row['result'] == '通过'): ?> selected="selected" <?php endif; ?>>通过</option>
+            <option value="失败" name="row[result]" <?php if($row['result'] == '失败'): ?> selected="selected" <?php endif; ?>>失败</option>
+            <option value="阻塞" name="row[result]" <?php if($row['result'] == '阻塞'): ?> selected="selected" <?php endif; ?>>阻塞</option>
+            <option value="新建" name="row[result]" <?php if($row['result'] == '新建'): ?> selected="selected" <?php endif; ?>>新建</option>
+            </select>
+        </div>
+    </div>
+    
     <div class="form-group hide layer-footer">
-        <label class="control-label col-xs-12 col-sm-2"></label>
-        <div class="col-xs-12 col-sm-8">
+    <div style="text-align:end;" class="form-group">
+     <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8" style="width: 20%;float:center;">
             <button type="submit" class="btn btn-success btn-embossed disabled"><?php echo __('OK'); ?></button>
-            <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
         </div>
+    </div>
     </div>
 </form>
 
