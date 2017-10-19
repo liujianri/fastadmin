@@ -5,12 +5,19 @@
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="one">
                 <div class="widget-body no-padding">
+                    
                     <div id="toolbar" class="bs-bars pull-right">
+                        <label class="control-label">所属平台:&nbsp;&nbsp;</label>
                         {:build_radios('platform', ['iOS'=>'iOS&nbsp;&nbsp;&nbsp;', 'Android'=>'Android&nbsp;&nbsp;&nbsp;'])}
+                        <label class="control-label">用例创建时间:</label>
+                        <span class="relative_time_tip" rel="#during_tip"></span>
+                        &nbsp;&nbsp;<div id="between_time" style="display: inline;">从&nbsp&nbsp<input type="date"  id="begintime"><span style="margin-left:10px;margin-right:10px;">到</span><input type="date" id="stoptime" >&nbsp&nbsp</div>
                         <button id="btn" type="button" class="btn btn-success" value="iOS" >{:__('OK')}</button>
                     </div>
-                <div  class="fixed-table-container">
-                <div id="echarts" style="width: 800px;height:500px;"></div>
+                    <div  class="fixed-table-container">
+                        <div id="echarts" style="width: 800px;height:500px;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

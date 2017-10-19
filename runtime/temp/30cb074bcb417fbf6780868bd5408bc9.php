@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/casecate/index.html";i:1508332107;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:97:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/casecate/index.html";i:1508408931;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -57,12 +57,19 @@
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="one">
                 <div class="widget-body no-padding">
+                    
                     <div id="toolbar" class="bs-bars pull-right">
+                        <label class="control-label">所属平台:&nbsp;&nbsp;</label>
                         <?php echo build_radios('platform', ['iOS'=>'iOS&nbsp;&nbsp;&nbsp;', 'Android'=>'Android&nbsp;&nbsp;&nbsp;']); ?>
+                        <label class="control-label">用例创建时间:</label>
+                        <span class="relative_time_tip" rel="#during_tip"></span>
+                        &nbsp;&nbsp;<div id="between_time" style="display: inline;">从&nbsp&nbsp<input type="date"  id="begintime"><span style="margin-left:10px;margin-right:10px;">到</span><input type="date" id="stoptime" >&nbsp&nbsp</div>
                         <button id="btn" type="button" class="btn btn-success" value="iOS" ><?php echo __('OK'); ?></button>
                     </div>
-                <div  class="fixed-table-container">
-                <div id="echarts" style="width: 800px;height:500px;"></div>
+                    <div  class="fixed-table-container">
+                        <div id="echarts" style="width: 800px;height:500px;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

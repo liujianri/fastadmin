@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:96:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/edit.html";i:1508233938;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:96:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/caselist/edit.html";i:1508411302;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -96,7 +96,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('priority'); ?>:</label>
+        <label for="c-imagewidth" class="control-label col-xs-12 col-sm-2"><?php echo __('platform'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[platform]">
                 <option value="Android" <?php if($row['platform'] == 'Android'): ?> selected="selected" <?php endif; ?> ><?php echo __('Android'); ?></option>
@@ -123,13 +123,13 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remarks'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remark'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <textarea type="text" name="row[remarks]" data-rule required class="form-control"  rows="5"><?php echo $row['remarks']; ?></textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('remarks'); ?>:</label>
+        <label for="c-imageheight" class="control-label col-xs-12 col-sm-2"><?php echo __('result'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <select name="row[result]" id="test_result" class="form-control btn-embossed">
             <option value="忽略" name="row[result]" <?php if($row['result'] == '忽略'): ?> selected="selected" <?php endif; ?>>忽略</option>

@@ -28,19 +28,28 @@ class CaseCate extends Backend
         if ($this->request->isAjax()) {
             $where=[];
             $platform = $this->request->get("platform");
+            $begintime = $this->request->get("begintime");
+            $stoptime = $this->request->get("stoptime");
             if ($platform) {
                 $where['platform']=$platform;
             }
+            if ($begintime and $stoptime) {
+                $begintime = strtotime($begintime);
+                $stoptime =strtotime($stoptime);
+                $where['buildtime']=['between',[$begintime,$stoptime]];
+            }
             $demands=$this->model->where($where)->group('demand')->column('demand');
-            foreach ($demands as $key => $value) {
+            if ($demands) {
+                foreach ($demands as $key => $value) {
                 $pass[]=$this->getdata($value,'通过',$where);
                 $fail[]=$this->getdata($value,'失败',$where);
                 $new[]=$this->getdata($value,'新建',$where);
                 $nt[]=$this->getdata($value,'忽略',$where);
                 $na[]=$this->getdata($value,'阻塞',$where);
-            }
-            $result = array('demand' => $demands, "fail"=>$fail,'pass' => $pass,'new' => $new,'nt' => $nt,'na' => $na,);
-            return json($result);
+                }
+                $result = array('demand' => $demands, "fail"=>$fail,'pass' => $pass,'new' => $new,'nt' => $nt,'na' => $na,);
+                return json($result);
+            } 
         }
         return $this->view->fetch();
     }

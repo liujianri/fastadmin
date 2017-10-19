@@ -101,12 +101,10 @@ class Auth
         {
             return true;
         }
-        //dump($name);die;
         // 获取用户需要验证的所有有效规则列表
         $rulelist = $this->getRuleList($uid);
         if (in_array('*', $rulelist))
             return true;
-
         if (is_string($name))
         {
             $name = strtolower($name);
@@ -119,6 +117,7 @@ class Auth
                 $name = [$name];
             }
         }
+        
         $list = []; //保存验证通过的规则名
         if ('url' == $mode)
         {

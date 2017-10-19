@@ -113,5 +113,5 @@ return [
     'Please login first'                                    => '请登录后操作',
     'An unexpected error occurred'                          => '发生了一个意外错误,程序猿正在紧急处理中',
     'This page will be re-directed in %s seconds'           => '页面将在 %s 秒后自动跳转',
-    'Tg'                                          => 'nihao',
+    
 ];

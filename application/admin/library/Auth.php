@@ -118,7 +118,7 @@ class Auth extends \fast\Auth
     }
 
     public function check($name, $uid = '', $relation = 'or', $mode = 'url')
-    {
+    {   
         return parent::check($name, $this->id, $relation, $mode);
     }
 

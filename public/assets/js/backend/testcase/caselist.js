@@ -28,7 +28,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'id', title: __('Id')},
                         {field: 'priority', title: __('priority')},
                         {field: 'platform', title: __('platform')},
-                        {field: 'casetitle', title: __('title')},
+                        {field: 'casetitle', title: __('casetitle')},
                         {field: 'demand', title: __('demand'), align: 'left'},
                         {field: 'assignTo', title: __('assignTo')},
                         {field: 'updatetime', title: __('updatetime'),formatter: Table.api.formatter.datetime},
