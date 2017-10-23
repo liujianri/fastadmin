@@ -94,7 +94,17 @@ class Demand extends Backend
         $this->assign('iteration',$iteration);
         return $this->view->fetch();
     }
-    
+    public function deliteration($ids = ""){
+        if ($ids)
+        {
+            $count = Db::name('iteration')->delete($ids);
+            if ($count)
+            {
+                $this->success('删除成功');
+            }
+        }
+        $this->error(__('Parameter %s can not be empty', 'ids'));
+    }
     public function del($ids = "")
     {
         if ($ids)

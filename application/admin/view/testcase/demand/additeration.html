@@ -73,7 +73,7 @@
                     </td>
                     <td style="text-align: center; vertical-align: middle;">
                             <a href="{:url('edititeration',array('id'=>$vo.id))}" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
+                            <a href="{:url('deliteration',array('ids'=>$vo.id))}" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             {/volist}

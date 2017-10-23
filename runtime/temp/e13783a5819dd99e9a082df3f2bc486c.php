@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1508235496;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:102:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/testcase/demand/additeration.html";i:1508489026;s:88:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/layout/default.html";i:1502881244;s:85:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/meta.html";i:1502881244;s:87:"/Applications/MAMP/htdocs/fastadmin/public/../application/admin/view/common/script.html";i:1502881244;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -125,7 +125,7 @@
                     </td>
                     <td style="text-align: center; vertical-align: middle;">
                             <a href="<?php echo url('edititeration',array('id'=>$vo['id'])); ?>" class="btn btn-xs btn-success btn-editone" title=""><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo url('deliteration',array('ids'=>$vo['id'])); ?>" class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>

@@ -117,7 +117,6 @@ class Auth
                 $name = [$name];
             }
         }
-        
         $list = []; //保存验证通过的规则名
         if ('url' == $mode)
         {

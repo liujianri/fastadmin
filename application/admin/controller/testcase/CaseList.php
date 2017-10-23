@@ -22,11 +22,29 @@ class CaseList extends Backend
         parent::_initialize();
         $this->model = model('CaseList');
         $this->modelValidate=Validate('CaseList');
-        $assignToer=model('Admin')->column('username');//指派人需要做权限
+        $userid=$this->getauthuserId("testcase/caselist/edit");
+        $assignToer=model('Admin')->where('id','in',$userid)->column('username');
         $demands=model('Demand')->where('status','normal')->order('id desc')->column('title');
         $this->arr=$demands;
         $this->view->assign("assignToer", $assignToer);
         $this->view->assign("demands", $demands);
+    }
+
+    /**
+     * 获取拥有某个权限的所有用户
+     *$name   string|array    规则列表,支持逗号分隔的权限规则或索引数组
+     *  返回用户的ID 一个一维数组
+     */
+    public function getauthuserId($name){
+        $userid=[];
+        $alluserid=model('Admin')->column('id');
+        $auth = new \fast\Auth();
+        foreach ($alluserid as $key => $value){
+            if ($auth->check($name,$value)) {
+                $userid[]= $value;
+            }
+        }
+        return $userid;
     }
 
     /**
